@@ -19,12 +19,16 @@
         function loadContent() {
             var request_data = {
                 url: "https://ipool.s.asideas.de/api/v3/search",
-                method: 'GET'
+                method: 'GET',
+                data: {
+                    q:'Berlin'
+                }
             };
 
             $.ajax({
                 url: request_data.url,
                 type: request_data.method,
+                data: request_data.data,
                 dataType: "json",
                 headers: this.oauth.toHeader(this.oauth.authorize(request_data))
             }).done(function(response) {
